@@ -4,9 +4,6 @@ import { motion } from 'framer-motion';
 const LiveChat: React.FC = () => {
   useEffect(() => {
     // Tawk.to Live Chat Integration with your specific ID
-    const Tawk_API: any = (window as any).Tawk_API || {};
-    const Tawk_LoadStart = new Date();
-    
     const s1 = document.createElement('script');
     const s0 = document.getElementsByTagName('script')[0];
     
