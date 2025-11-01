@@ -5,7 +5,6 @@ import { projects } from '../data/projects';
 const Projects: React.FC = () => {
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
-    // Fallback to a placeholder image if the image fails to load
     target.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&fit=crop';
   };
 
