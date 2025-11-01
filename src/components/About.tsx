@@ -80,18 +80,7 @@ const About: React.FC = () => {
                   src="/profile.jpg" 
                   alt="Ibrahim Sobur Bamidele"
                   className="w-48 h-48 rounded-full mx-auto mb-6 object-cover border-4 border-blue-500 shadow-lg"
-                  onError={(e) => {
-                    // Fallback if image doesn't load
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.nextSibling.style.display = 'block';
-                  }}
                 />
-                <div 
-                  className="w-48 h-48 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center hidden"
-                  style={{display: 'none'}}
-                >
-                  <span className="text-white text-lg font-semibold">Add profile.jpg to public folder</span>
-                </div>
               </motion.div>
             </div>
 

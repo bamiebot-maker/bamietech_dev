@@ -1,12 +1,11 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const LiveChat: React.FC = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
   useEffect(() => {
     // Tawk.to Live Chat Integration with your specific ID
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    const Tawk_API: any = (window as any).Tawk_API || {};
+    const Tawk_LoadStart = new Date();
     
     const s1 = document.createElement('script');
     const s0 = document.getElementsByTagName('script')[0];
@@ -16,10 +15,6 @@ const LiveChat: React.FC = () => {
     s1.charset = 'UTF-8';
     s1.setAttribute('crossorigin', '*');
     
-    s1.onload = () => {
-      setIsLoaded(true);
-    };
-
     if (s0 && s0.parentNode) {
       s0.parentNode.insertBefore(s1, s0);
     } else {
@@ -35,8 +30,8 @@ const LiveChat: React.FC = () => {
   }, []);
 
   const openChat = () => {
-    if (window.Tawk_API) {
-      window.Tawk_API.maximize();
+    if ((window as any).Tawk_API) {
+      (window as any).Tawk_API.maximize();
     } else {
       alert('Chat is loading... Please wait a moment.');
     }
