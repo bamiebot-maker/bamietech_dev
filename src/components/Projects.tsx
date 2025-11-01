@@ -3,11 +3,6 @@ import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 
 const Projects: React.FC = () => {
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const target = e.target as HTMLImageElement;
-    target.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&fit=crop';
-  };
-
   return (
     <section id="projects" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,24 +25,17 @@ const Projects: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.8 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="bg-gray-800 rounded-xl overflow-hidden shadow-lg"
             >
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  onError={handleImageError}
-                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+                  className="w-full h-48 object-cover"
                 />
                 {project.featured && (
                   <div className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     Featured
-                  </div>
-                )}
-                {project.title.includes('Lodgie') && (
-                  <div className="absolute top-4 left-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    In Development
                   </div>
                 )}
               </div>
@@ -68,23 +56,18 @@ const Projects: React.FC = () => {
                 </div>
                 
                 <div className="flex gap-4">
-                  <motion.a
+                  <a
                     href={project.liveUrl}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={lex-1 text-center py-2 px-4 rounded-lg transition-colors duration-200 }
-                    onClick={(e) => project.liveUrl === '#' && e.preventDefault()}
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-lg transition-colors duration-200"
                   >
-                    {project.liveUrl === '#' ? 'Coming Soon' : 'Live Demo'}
-                  </motion.a>
-                  <motion.a
+                    Live Demo
+                  </a>
+                  <a
                     href={project.githubUrl}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                     className="flex-1 border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white text-center py-2 px-4 rounded-lg transition-colors duration-200"
                   >
                     GitHub
-                  </motion.a>
+                  </a>
                 </div>
               </div>
             </motion.div>
